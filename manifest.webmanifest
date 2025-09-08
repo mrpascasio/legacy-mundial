@@ -3,19 +3,17 @@
   "short_name": "Legacy Mundial",
   "description": "Proof of authenticity forever — by Maynard Rafael Pascasio (Structura Cerebri).",
   "start_url": "index.html",
+  "scope": "./",
   "display": "standalone",
+  "orientation": "any",
   "background_color": "#101020",
   "theme_color": "#9d4edd",
   "icons": [
     {
       "src": "assets/logo-512.png",
       "sizes": "512x512",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/logo.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
