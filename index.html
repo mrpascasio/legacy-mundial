@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legacy Mundial Hash Proof Tool</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#101020">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="apple-touch-icon" href="assets/logo-512.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="brandbar">
+    <div class="brand">
+      <img src="assets/logo.svg" alt="Logo" class="logo">
+      <div class="brandtext">
+        <h1>Legacy Mundial Hash Proof Tool</h1>
+        <p>From Structura Cerebri — by Maynard Pascasio</p>
+      </div>
+    </div>
+    <div class="copyright">© 2025 Maynard Rafael Pascasio • LegacyKey v1</div>
+  </header>
+
+  <main class="panel">
+    <section class="row">
+      <div class="card uploader">
+        <h3>Step 1 — Upload File</h3>
+        <div id="dropzone" class="dropzone"><strong>Drop file here</strong></div>
+        <div class="browse">
+          <label class="btn primary">Choose File
+            <input id="fileInput" type="file" hidden />
+          </label>
+          <div class="hint">Photos, documents, videos, audio, ZIPs, NFT media — anything digital.</div>
+        </div>
+      </div>
+
+      <div class="card saveproof">
+        <h3>Save Proof</h3>
+        <div class="btncol">
+          <button id="saveTxt" class="btn">Save .hash.txt</button>
+          <button id="saveJson" class="btn">Save .hash.json</button>
+          <button id="saveBadge" class="btn">Save Badge.png</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="row">
+      <div class="card steps">
+        <h3>Layman’s Steps</h3>
+        <ol>
+          <li>Choose a file (drop or tap).</li>
+          <li>The tool makes its fingerprint (hash).</li>
+          <li>Paste an original hash (Primary/Secondary/Tertiary) if you have one.</li>
+          <li>Read verdict: ✅ MATCH • ❌ NOT A MATCH • ❔ UNKNOWN.</li>
+          <li>Save proof (TXT, JSON, Badge).</li>
+        </ol>
+        <h3>Why hash?</h3>
+        <p>A hash is a file’s fingerprint. If even 1 pixel changes, the fingerprint changes. This proves originality forever, on any device.</p>
+      </div>
+
+      <div class="card results">
+        <h3>Computed Hash (SHA-256)</h3>
+        <div class="hashline">
+          <code id="hashOut">—</code>
+          <button id="copyHash" class="btn">Copy</button>
+        </div>
+        <div class="meta" id="fileMeta">Filename: — • Bytes: —</div>
+        <div class="verdictwrap">
+          <div id="verdictIcon" class="icon unknown" aria-label="unknown">❔</div>
+          <div id="verdictText" class="verdict-text">UNKNOWN (no original provided)</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card claims">
+      <h3>Original Claims (optional)</h3>
+      <div class="claims-grid">
+        <div class="claim"><label>Primary Hash</label><input id="primaryHash" placeholder="Paste known original hash (SHA-256)" /></div>
+        <div class="claim"><label>Secondary Hash</label><input id="secondaryHash" placeholder="(optional)" /></div>
+        <div class="claim"><label>Tertiary Hash</label><input id="tertiaryHash" placeholder="(optional)" /></div>
+      </div>
+      <button id="compareBtn" class="btn">Compare</button>
+    </section>
+
+    <footer class="foot">
+      <div class="lang">
+        <label for="langSel">Language:</label>
+        <select id="langSel">
+          <option value="en" selected>English</option>
+          <option value="es">Español</option>
+          <option value="tl">Tagalog</option>
+          <option value="ar">العربية</option>
+          <option value="zh">中文</option>
+        </select>
+      </div>
+      <button id="storyBtn" class="btn ghost">The Story Behind Legacy Mundial</button>
+    </footer>
+  </main>
+
+  <dialog id="storyDlg">
+    <article class="story">
+      <div class="storybody" id="storyBody"></div>
+      <div class="storyactions">
+        <a id="storyOnline" class="btn" href="#" target="_blank" rel="noopener">Read Full Story Online</a>
+        <button id="resetStory" class="btn">Reset Story</button>
+        <button id="closeStory" class="btn primary">Back to Tool</button>
+      </div>
+    </article>
+  </dialog>
+
+  <canvas id="badgeCanvas" width="900" height="540" style="display:none"></canvas>
+  <script src="app.js"></script>
+</body>
+</html>
